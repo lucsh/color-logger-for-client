@@ -1,17 +1,14 @@
-[![Build Status](https://travis-ci.org/h13i32maru/color-logger.svg?branch=master)](https://travis-ci.org/h13i32maru/color-logger)
-[![Coverage Status](https://coveralls.io/repos/h13i32maru/color-logger/badge.svg)](https://coveralls.io/r/h13i32maru/color-logger)
-
 # Color Logger
 colorful logger for node.
 
 ```
-npm install --save lucsh/color-logger
+npm install --save lucsh/color-logger-for-client
 ```
 
 ## Example
 
 ```js
-import Logger from 'color-logger';
+import Logger from 'color-logger-for-client';
 
 // simple usage
 Logger.v('verbose log1', 'verbose log2');
@@ -29,7 +26,6 @@ Logger.i('info log');
 Logger.w('warning log');
 Logger.e('error log');
 Logger.n('normal log');
-Logger.t('with timestamp (same line)');
 ```
 <img src='./misc/color-logger.png' width='600'>
 ## License
