@@ -1,5 +1,5 @@
 # Color Logger
-colorful logger for node.
+colorful logger for client.
 
 ```
 npm install --save lucsh/color-logger-for-client
