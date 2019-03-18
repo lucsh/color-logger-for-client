@@ -67,9 +67,24 @@ export class ColorLogger {
    */
   _output(level, ...msg) {
     const text = [];
+
+    // Circular reference fix
+    const getCircularReplacer = () => {
+      const seen = new WeakSet();
+      return (key, value) => {
+        if (typeof value === "object" && value !== null) {
+          if (seen.has(value)) {
+            return;
+          }
+          seen.add(value);
+        }
+        return value;
+      };
+    };
+
     for (const m of msg) {
       if (typeof m === 'object') {
-        text.push(JSON.stringify(m, null, 2));
+        text.push(JSON.stringify(m, getCircularReplacer(), 2));
       } else {
         text.push(m);
       }

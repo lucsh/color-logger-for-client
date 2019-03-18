@@ -1,7 +1,7 @@
 {
-  "name": "color-logger-for-client",
-  "version": "0.0.1",
-  "description": "Color Logger for Client base on Color Logger",
+  "name": "color-logger-client",
+  "version": "0.0.2",
+  "description": "Color Logger for Client based on Color Logger",
   "author": "lucsh",
   "license": "MIT",
   "repository": {

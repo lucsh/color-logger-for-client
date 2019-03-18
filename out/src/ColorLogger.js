@@ -74,13 +74,27 @@ class ColorLogger {
   _output(level) {
     const text = [];
 
+    // Circular reference fix
+    const getCircularReplacer = () => {
+      const seen = new WeakSet();
+      return (key, value) => {
+        if (typeof value === "object" && value !== null) {
+          if (seen.has(value)) {
+            return;
+          }
+          seen.add(value);
+        }
+        return value;
+      };
+    };
+
     for (var _len = arguments.length, msg = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       msg[_key - 1] = arguments[_key];
     }
 
     for (const m of msg) {
       if (typeof m === 'object') {
-        text.push(JSON.stringify(m, null, 2));
+        text.push(JSON.stringify(m, getCircularReplacer(), 2));
       } else {
         text.push(m);
       }
